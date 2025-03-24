@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="static/css/login.css">
+    <script src="static/js/login.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="login-section">
+            <div class="login-header">
+                <h1>Login to Your Account</h1>
+                <p>Please enter your credentials to access your account</p>
+            </div>
+            <form>
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                <div class="forgot-password">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button class="button" id = "home-button" onclick="home()">Back</button>
+                <button type="submit" class="button" id = "login-button" >Login</button>
+                <div class="signup-link">
+                    Don't have an account? <a href="#">Sign up</a>
+                </div>
+            </form>
+        </div>
+        <div class="image-section">
+            <div class="image-content">
+                <h2>Welcome Back</h2>
+                <p>Access your account and continue your journey with us. We're glad to see you again.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

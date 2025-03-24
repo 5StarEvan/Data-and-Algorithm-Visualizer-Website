@@ -1,0 +1,246 @@
+/* Reset default margin, padding, and set box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+body {
+    background: #f0f7ff; 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+
+.visual {
+    width: 100%;
+    height: calc(100vh - 120px);
+    background: linear-gradient(135deg, rgba(10, 30, 65, 0.95), rgba(5, 20, 45, 0.9)); /* Darker blue gradient */
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    flex: 1;
+}
+
+
+.information-text {
+    color: white;
+    position: absolute;
+    bottom: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    padding: 10px;
+    line-height: 1.8;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+
+
+
+.element-data {
+    width: 90%;
+    max-width: 600px;
+    background: rgba(30, 60, 120, 0.8); 
+    border: 2px solid #1e40af; 
+    display: none; 
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 20px;
+    z-index: 10;
+}
+
+.element-data:hover {
+    transform: translateY(5px);
+    box-shadow: 0 8px 25px rgba(30, 64, 175, 0.4); 
+}
+
+
+.user-input {
+    width: 100%;
+    background: linear-gradient(135deg, #ffffff, #e0f2fe); 
+    padding: 20px 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.Title {
+    font-size: 20px;
+    color: #0c4a6e; 
+    white-space: nowrap;
+    margin-right: 20px;
+}
+
+input[type="text"] {
+    width: 180px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+input[type="text"]:focus {
+    box-shadow: 0 4px 15px rgba(30, 64, 175, 0.25);  
+    transform: translateY(-2px);
+}
+
+
+input::placeholder {
+    color: #94a3b8; 
+    font-size: 14px;
+}
+
+
+.button {
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(30, 64, 175, 0.25);
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.button:hover {
+    background: linear-gradient(135deg, #1e3a8a, #2563eb); 
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(30, 64, 175, 0.4); 
+}
+
+.button:active {
+    transform: translateY(0);
+}
+
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.navigation-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+
+#home-button {
+    position: relative;
+    top: 20px;
+    margin-left: 15px;
+}
+
+
+@media (max-width: 992px) {
+    .user-input {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+    
+    .input-container {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .navigation-buttons {
+        width: 100%;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .user-input {
+        padding: 15px;
+    }
+    
+    .Title {
+        margin-right: 0;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    .input-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    input[type="text"] {
+        width: 100%;
+    }
+    
+    .action-buttons {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .navigation-buttons {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    .visual {
+        height: calc(100vh - 250px);
+    }
+}
+
+@media (max-width: 480px) {
+    .action-buttons, .navigation-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .button {
+        width: 100%;
+    }
+    
+    .visual {
+        height: calc(100vh - 320px);
+    }
+}

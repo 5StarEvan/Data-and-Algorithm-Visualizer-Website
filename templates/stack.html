@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="static/js/stack.js"></script>
+    <link rel="stylesheet" href="static/css/stack.css">
+    <title>Stack</title>
+</head>
+<body>
+    <!--Where the user is going to input data-->
+    <div class="user-input">
+        <h1 class="Title">Stack Data Structure</h1>
+        
+        <div class="input-container">
+            <input id="Input-Value" type="text" placeholder="Enter Values">
+            
+            <div class="action-buttons">
+                <button class="button" id="Add-Button" onclick="pushValue()">Push Value</button>
+                <button class="button" id="Remove-Button" onclick="pop()">Pop</button>
+            </div>
+        </div>
+        
+        <div class="navigation-buttons">
+            <button class="button" id="Home-Button" onclick="home()">Back to Home</button>
+            <button class="button" id="List-Button" onclick="list()">Back to List</button>
+            <button class="button" id="Reset-Button" onclick="reset()">Reset</button>
+        </div>
+    </div>
+
+    <!--Where the data is going to be visualized-->
+    <div class="visual">
+        <div class="element-data" id="addedElements"></div>
+    </div>
+</body>
+</html>

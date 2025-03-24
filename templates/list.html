@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualizer</title>
+    <link rel="stylesheet" href="static/css/list.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="static/js/list.js"></script>
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+
+        <div class ="home-button">
+            <button class="button" onclick="ReturnHome()" >Return To Home</button>
+        </div>
+
+        <h1>Data Structure Visualizer</h1>
+        <p class="subtitle">Explore and learn different data structures</p>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <div class="search-box">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="searchInput" placeholder="Search data structures...">
+            <button id="clearButton" class="clear-button" title="Clear search"><i class="fas fa-times"></i></button>
+        </div>
+        <button id="searchButton" class="search-button" >Search</button>
+    </div>
+
+    <!-- No Results Message -->
+    <div id="noResults" class="no-results hidden">
+        <i class="fas fa-exclamation-circle"></i>
+        <p>No data structures found matching your search.</p>
+    </div>
+
+    
+    <!-- Links for different Data Structures -->
+    <h2 class = "Information-Header" id = "Data-Structure-Header"> Data Structures </h2>
+    <div class="data-structure-grid-container">
+        <a href="/linkedlist.html" class="Data-Structure-Link" id="LinkedList-Structure-Link">
+            <div class="icon-container">
+                <i class="fas fa-link"></i>
+            </div>
+            <h3>LinkedList</h3>
+        </a>
+        <a href="/stack.html" class="Data-Structure-Link" id="Stack-Structure-Link">
+            <div class="icon-container">
+                <i class="fas fa-layer-group"></i>
+            </div>
+            <h3>Stack</h3>
+        </a>
+        <a href="/queue.html" class="Data-Structure-Link" id="Queue-Structure-Link">
+            <div class="icon-container">
+                <i class="fas fa-stream"></i>
+            </div>
+            <h3>Queue</h3>
+        </a>
+
+        <a href="/tree.html" class="Data-Structure-Link" id="Tree-Structure-Link">
+            <div class="icon-container">
+                <i class="fas fa-sitemap"></i>
+            </div>
+            <h3>Tree</h3>
+        </a>
+
+        <a href="/graph.html" class="Data-Structure-Link" id="Graph-Structure-Link">
+            <div class="icon-container">
+                <i class="fas fa-project-diagram"></i>
+            </div>
+            <h3>Graph</h3>
+        </a>
+        <a href="/hashmap.html" class="Data-Structure-Link" id="Hashtable-Structure-Link">
+            <div class="icon-container">
+                <i class="fas fa-hashtag"></i>
+            </div>
+            <h3>Hash Map</h3>
+        </a>
+
+    </div>
+
+    <h2 class = "Information-Header" id = "Algorithm-Header"> Algorithms </h2>
+    <div class="algorithm-grid-container">
+        <a href="/dfs.html" class="Algorithm-Link" id="DFS-Link">
+            <div class="icon-container">
+                <i class="fas fa-sitemap"></i>
+            </div>
+            <h3>DFS</h3>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Data Visualizer</h4>
+                <p>An interactive platform to help you understand data structures and algorithms.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer__links">
+                    <li><a href="#" class="footer__link">Home</a></li>
+                    <li><a href="#" class="footer__link">Algorithms</a></li>
+                    <li><a href="#" class="footer__link">Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect With Us</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer__copyright">&copy; 2025 Data Visualizer. All rights reserved.</p>
+            <ul class="footer__links footer__links--inline">
+                <li><a href="#" class="footer__link footer__link--small">Privacy Policy</a></li>
+                <li><a href="#" class="footer__link footer__link--small">Terms of Service</a></li>
+                <li><a href="#" class="footer__link footer__link--small">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

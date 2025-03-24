@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="static/js/linkedlist.js"></script>
+    <link rel="stylesheet" href="static/css/linkedlist.css">
+    <title>LinkedList</title>
+</head>
+<body>
+    <!--Where the user is going to input data (now at the top)-->
+    <div class="user-input">
+        <h1 class="Title">LinkedList Data Structure</h1>
+        <div class="input-container">
+            <input id="Input-Value" type="text" placeholder="Enter Value">
+            <input id="Input-Index" type="text" placeholder="Enter Index (optional)">
+            
+            <div class="action-buttons">
+                <button class="button" id="Add-Button" onclick="addValue()">Add</button>
+                <button class="button" id="Remove-Button" onclick="removeValue()">Remove</button>
+                <button class="button" id="Search-Button" onclick="searchValue()">Search</button>
+            </div>
+        </div>
+        
+        <div class="navigation-buttons">
+            <button class="button" id="Home-Button" onclick="home()">Home</button>
+            <button class="button" id="List-Button" onclick="list()">List</button>
+            <button class="button" id="Reset-Button" onclick="reset()">Reset</button>
+        </div>
+    </div>
+    
+    <!--Where the data is going to be visualized (now larger)-->
+    <div class="visual">
+        <div class="element-data" id="addedElements"></div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualizer | Data Structures and Algorithms Made Easy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="static/css/home.css">
+    <script src="static/js/home.js"></script>
+
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navigation-bar">
+        <div class="navigation-bar-logo">Data Structures and Algorithm Visualizer</div>
+        <button class="mobile-nav-toggle" id="mobileNavToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="navigation-bar-links" id="navLinks">
+            <li><a href="#home" class="navigation-bar-link">Home</a></li>
+            <li><a href="#features" class="navigation-bar-link">Features</a></li>
+            <li><a href="#about" class="navigation-bar-link">About</a></li>
+            <li><a href="#contact" class="navigation-bar-link">Contact</a></li>
+            <button class = "button" onclick="login()"">Login</button>
+            <button class = "button" onclick="signup()">Sign up</button>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">Visualize Code <span class="text-gradient">Like Never Before</span></h1>
+            <p class="hero-description">Transform complex data into beautiful, interactive visualizations.</p>
+            <div class="hero-buttons">
+                <a href="list.html" class="hero-call-to-action-button button button-primary">Get Started</a>
+                <a href="#about" class="button button-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Our Features</h2>
+            <p class="features-subtitle">Powerful tools to help you understand and visualize complex data structures and algorithms</p>
+            <div class="features-cards">
+                <div class="features-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="features-card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="features-card-title">Interactive Charts</h3>
+                    <p class="features-card-description">Create dynamic and interactive charts for better insights with real-time data visualization.</p>
+                </div>
+                
+                <div class="features-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="features-card-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3 class="features-card-title">Algorithm Visualization</h3>
+                    <p class="features-card-description">Watch algorithms in action with step-by-step visualization of sorting, searching, and graph algorithms.</p>
+                </div>
+                
+                <div class="features-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="features-card-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="features-card-title">Data Structure Models</h3>
+                    <p class="features-card-description">Interactive models of complex data structures like trees, graphs, and hash tables with intuitive interfaces.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="/api/placeholder/400/400" alt="Profile Picture" class="profile-image">
+                </div>
+                <div class="about-info">
+                    <h3 class="about-name">Evan Guo</h3>
+                    <p class="about-title">Student</p>
+                    <p class="about-description">
+                        I'm passionate about making complex concepts in computer science accessible to everyone. 
+                        I've created this platform to help students and professionals visualize and understand data structures and algorithms.
+                    </p>
+                    <div class="about-skills">
+                        <span class="skill-tag">Data Structures</span>
+                        <span class="skill-tag">Algorithms</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Visualization</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="contact-subtitle">Have questions or suggestions? Reach out and I'll get back to you!</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>To Be Added</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>To Be Added</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p>To Be Added</p>
+                        </div>
+                    </div>
+                    <div class="contact-social">
+                        <a href="#" class="contact-social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="contact-social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="contact-social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="button button-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Data Visualizer</div>
+                <ul class="footer-links">
+                    <li><a href="#home" class="footer-link">Home</a></li>
+                    <li><a href="#features" class="footer-link">Features</a></li>
+                    <li><a href="#about" class="footer-link">About</a></li>
+                    <li><a href="#contact" class="footer-link">Contact</a></li>
+                    <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                    <li><a href="#" class="footer-link">Terms of Service</a></li>
+                </ul>
+                <div class="footer-divider"></div>
+                <p class="footer-copyright">&copy; 2025 Data Visualizer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

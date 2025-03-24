@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create an Account</title>
+    <link rel="stylesheet" href="static/css/signup.css">
+    <script src="static/js/signup.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="info-section">
+            <div class="info-content">
+                <h1>Join our community today</h1>
+                <p>Create an account to access all our premium features and start your journey with us.</p>
+                
+                <div class="features">
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div class="feature-text">Fast and secure platform with 24/7 support</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div class="feature-text">Personalized dashboard with real-time analytics</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div class="feature-text">Advanced tools for professionals and teams</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="signup-section">
+            <div class="signup-header">
+                <h2>Create an Account</h2>
+                <p>Please fill in your information to get started.</p>
+            </div>
+            
+            <!-- Add method="POST" to your form here -->
+            <form action="/signup.html" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="inputFirstName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="inputLastName" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="inputEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="inputPassword" required>
+                </div>
+                
+                <div class="privacy-policy">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                </div>
+                
+                <button type="submit" class="signup-button">Create Account</button>
+                
+                <div class="login-link">
+                    Already have an account? <a href="#">Log in</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

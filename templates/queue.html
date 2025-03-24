@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="static/js/queue.js"></script>
+    <link rel="stylesheet" href="static/css/queue.css">
+    <title>Queue</title>
+</head>
+<body>
+    <!--Where the user is going to input data-->
+    <div class="user-input">
+        <h1 class="Title">Queue Data Structure</h1>
+        
+        <div class="input-container">
+            <input id="Input-Value" type="text" placeholder="Enter Values">
+            
+            <div class="action-buttons">
+                <button class="button" id="Add-Button" onclick="addValue()">Add Value to Queue</button>
+                <button class="button" id="Remove-Button" onclick="removeValue()">Remove Value from Queue</button>
+            </div>
+        </div>
+        
+        <div class="navigation-buttons">
+            <button class="button" id="Home-Button" onclick="home()">Back to Home</button>
+            <button class="button" id="List-Button" onclick="list()">Back to List</button>
+            <button class="button" id="Reset-Button" onclick="reset()">Reset</button>
+        </div>
+    </div>
+
+    <!--Where the data is going to be visualized-->
+    <div class="visual">
+        <div class="element-data" id="addedElements"></div>
+        <p1 class = "information-text">
+        A queue is a linear data structure that organizes elements in a sequential order, following the First In, First Out (FIFO) principle. <br>
+        This means that the first item added to the queue is the first item to be removed—like a line of people waiting for a bus.
+        </p1>
+    </div>
+
+    
+</body>
+</html>
