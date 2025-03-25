@@ -43,10 +43,6 @@ def list():
 def queue():
     return render_template('queue.html')
 
-@app.route('/hashmap.html')
-def hashmap():
-    return render_template('hashmap.html')
-
 @app.route('/login.html' , methods=['GET' , 'POST'])
 def login():
 
