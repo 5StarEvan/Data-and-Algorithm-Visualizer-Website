@@ -9,10 +9,10 @@ def configure():
     
 app = Flask(__name__)
 
-app.config['MYSQL_HOST'] = ""
-app.config['MYSQL_USER'] = ""
-app.config['MYSQL_PASSWORD'] = ""
-app.config['MYSQL_DB'] = "os.get"
+app.config['MYSQL_HOST'] = os.getenv("DBH")
+app.config['MYSQL_USER'] = os.getenv("DBU")
+app.config['MYSQL_PASSWORD'] = os.getenv("DBP")
+app.config['MYSQL_DB'] = os.getenv("DBN")
 
 
 mysql = MySQL(app)
@@ -49,6 +49,9 @@ def hashmap():
 
 @app.route('/login.html' , methods=['GET' , 'POST'])
 def login():
+
+    userEmail = request.form['email']
+    userPassword = request.form['password']
     return render_template('pageInProgress.html')
 
 @app.route('/accountCreateSuccess.html')
@@ -66,8 +69,6 @@ def signup():
 
         # Hash the password
         hashedUserPassword = generate_password_hash(userPassword, method='pbkdf2:sha256')
-
-    
 
         # Connect to the MySQL database
         cur = mysql.connection.cursor()
