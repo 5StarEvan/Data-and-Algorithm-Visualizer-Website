@@ -1,4 +1,4 @@
-/* Reset default margin, padding, and set box-sizing */
+
 * {
     margin: 0;
     padding: 0;
@@ -51,8 +51,8 @@ body {
 .element-data {
     width: 90%;
     max-width: 600px;
-    background: rgba(75, 85, 99, 0.8); /* Grey tinted background */
-    border: 2px solid #374151; /* Darker grey border */
+    background: rgba(75, 85, 99, 0.8); 
+    border: 2px solid #374151; 
     display: none; 
     align-items: center;
     justify-content: center;

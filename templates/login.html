@@ -6,6 +6,9 @@
     <title>Login Page</title>
     <link rel="stylesheet" href="static/css/login.css">
     <script src="static/js/login.js" defer></script>
+    <style>
+
+    </style>
 </head>
 <body>
     <div class="container">
@@ -13,39 +16,46 @@
             <div class="login-header">
                 <h1>Login to Your Account</h1>
                 <p>Please enter your credentials to access your account</p>
+                
+             
+                {% if message %}
+                <div class="error-message">
+                    {{ message }}
+                </div>
+                {% endif %}
 
-        
-            <form action="/login.html" method="POST">
-                <div class="input-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                </div>
-                <div class="input-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
-                </div>
-                <div class="forgot-password">
-                    <a href="#">Forgot Password?</a>
-                </div>
-                
-                <!-- Back button functionality -->
-                <button type="button" class="button" id="home-button" onclick="window.location.href='/'">Back</button>
-                
-                <!-- Submit button for login -->
-                <button type="submit" class="button" id="login-button">Login</button>
-                
-                <!-- Sign-up link -->
-                <div class="signup-link">
-                    Don't have an account? <a href="#">Sign up</a>
-                </div>
-            </form>
-        </div>
+                <form action="/login.html" method="POST">
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="forgot-password">
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    
+                 
+                    <button type="button" class="button" id="home-button" onclick="window.location.href='home.html'">Back</button>
+                    
+            
+                    <button type="submit" class="button" id="login-button">Login</button>
+                    
+      
+                    <div class="signup-link">
+                        Don't have an account? <a href="#">Sign up</a>
+                    </div>
+                </form>
+            </div>
 
-        <!-- Image section for visual content -->
-        <div class="image-section">
-            <div class="image-content">
-                <h2>Welcome Back</h2>
-                <p>Access your account and continue your journey with us. We're glad to see you again.</p>
+
+            <div class="image-section">
+                <div class="image-content">
+                    <h2>Welcome Back</h2>
+                    <p>Access your account and continue your journey with us. We're glad to see you again.</p>
+                </div>
             </div>
         </div>
     </div>

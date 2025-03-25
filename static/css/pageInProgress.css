@@ -25,7 +25,6 @@ body {
     max-width: 600px;
 }
 
-/* Styling for the buttons */ 
 .button {
     background: linear-gradient(135deg, #3498db, #2980b9);
     color: white;

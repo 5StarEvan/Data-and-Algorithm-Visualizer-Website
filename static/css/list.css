@@ -1,20 +1,20 @@
 /* General Styles */
 :root {
-  --primary-color: #4b5563; /* Medium grey (was dark blue) */
-  --primary-dark: #374151; /* Darker grey (was darker blue) */
-  --secondary-color: #6b7280; /* Light-medium grey (was medium blue) */
-  --accent-color: #374151; /* Darker grey (was bright blue) */
-  --success-color: #059669; /* Green-tinted success (was blue-tinted) */
-  --warning-color: #b45309; /* Orange-tinted warning (was blue-tinted) */
-  --error-color: #dc2626; /* Red error (was blue-tinted error) */
-  --background-light: #f9fafb; /* Light grey background (was light blue) */
-  --background-dark: #1f2937; /* Dark grey background (was dark blue) */
+  --primary-color: #4b5563; 
+  --primary-dark: #374151; 
+  --secondary-color: #6b7280;
+  --accent-color: #374151; 
+  --success-color: #059669; 
+  --warning-color: #b45309; 
+  --error-color: #dc2626; 
+  --background-light: #f9fafb; 
+  --background-dark: #1f2937; 
   --visual-bg-dark: linear-gradient(135deg, rgba(31, 41, 55, 0.95), rgba(17, 24, 39, 0.9)); /* Darker grey gradient for visual */
   --card-bg: #ffffff;
-  --text-primary: #111827; /* Dark grey text (was dark blue) */
-  --text-secondary: #374151; /* Medium grey text (was medium blue) */
-  --text-tertiary: #6b7280; /* Light grey text (was light blue) */
-  --border-color: #e5e7eb; /* Light grey border (was light blue) */
+  --text-primary: #111827; 
+  --text-secondary: #374151; 
+  --text-tertiary: #6b7280; 
+  --border-color: #e5e7eb;
   --shadow-sm: 0 4px 6px rgba(31, 41, 55, 0.1);
   --shadow-md: 0 10px 15px rgba(31, 41, 55, 0.15);
   --shadow-lg: 0 20px 25px rgba(31, 41, 55, 0.2);
@@ -70,13 +70,12 @@ input[type="text"]:focus {
   transform: translateY(-2px);
 }
 
-/* Input placeholder color & style */
 input::placeholder {
   color: var(--text-tertiary);
   font-size: 14px;
 }
 
-/* Home Button Section */
+
 .home-button {
   position: absolute;
   top: 20px;
@@ -84,7 +83,7 @@ input::placeholder {
   z-index: 20;
 }
 
-/* Styling for buttons */
+
 .button {
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: white;
@@ -110,7 +109,7 @@ input::placeholder {
   transform: translateY(0);
 }
 
-/* Action buttons container */
+
 .action-buttons {
   display: flex;
   gap: 8px;
@@ -124,14 +123,14 @@ input::placeholder {
   flex-wrap: wrap;
 }
 
-/* Home button specific styles */
+
 #home-button {
   position: relative;
   top: 20px;
   margin-left: 15px;
 }
 
-/* Header */
+
 .header {
   text-align: center;
   padding: 3rem 1rem 2rem;
@@ -166,7 +165,7 @@ input::placeholder {
   margin-bottom: 2rem;
 }
 
-/* Search Container */
+
 .search-container {
   max-width: 600px;
   margin: -1rem auto 2rem;
@@ -246,7 +245,7 @@ input::placeholder {
   box-shadow: var(--shadow-md);
 }
 
-/* No Results Message */
+
 .no-results {
   text-align: center;
   padding: 2rem;
@@ -271,7 +270,7 @@ input::placeholder {
   text-decoration: underline;
 }
 
-/* Grid Layout for Data Structure Links */
+
 .data-structure-grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));

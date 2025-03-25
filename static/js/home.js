@@ -1,12 +1,70 @@
 function login(){
     window.location.href = "login.html";
-    
 }
 
 function signup(){
     window.location.href = "signup.html";
 }
 
+function logout() {
+  
+    localStorage.removeItem('userToken');
+    sessionStorage.removeItem('userSession');
+    
+    window.location.href = '/logout.html';
+}
+
+window.onload = function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('logout') === 'true') {
+     
+        showFlashMessage('You have been logged out successfully!');
+        
+        history.replaceState(null, '', window.location.pathname);
+    }
+};
+
+function showFlashMessage(message) {
+  
+    const existingFlashMsg = document.querySelector('.flash-message');
+    if (existingFlashMsg) {
+        existingFlashMsg.remove();
+    }
+
+    // Create a flash message element
+    const flashMsg = document.createElement('div');
+    flashMsg.className = 'flash-message';
+    flashMsg.textContent = message;
+    flashMsg.style.position = 'fixed';
+    flashMsg.style.top = '20px';
+    flashMsg.style.left = '50%';
+    flashMsg.style.transform = 'translateX(-50%)';
+    flashMsg.style.backgroundColor = '#4CAF50';
+    flashMsg.style.color = 'white';
+    flashMsg.style.padding = '15px 25px';
+    flashMsg.style.borderRadius = '4px';
+    flashMsg.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+    flashMsg.style.zIndex = '1000';
+    flashMsg.style.opacity = '0';
+    flashMsg.style.transition = 'opacity 0.5s ease-in-out';
+    
+    // Add to the page
+    document.body.appendChild(flashMsg);
+    
+    // Trigger reflow to enable transition
+    flashMsg.offsetHeight;
+    
+    // Fade in
+    flashMsg.style.opacity = '1';
+    
+    // Fade out and remove after 3 seconds
+    setTimeout(() => {
+        flashMsg.style.opacity = '0';
+        setTimeout(() => {
+            flashMsg.remove();
+        }, 500);
+    }, 3000);
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     const navbar = document.querySelector('.navigation-bar');
@@ -186,3 +244,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
 });
+
+  
