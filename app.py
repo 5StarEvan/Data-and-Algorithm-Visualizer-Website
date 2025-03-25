@@ -43,6 +43,8 @@ def list():
 def queue():
     return render_template('queue.html')
 
+
+
 @app.route('/login.html' , methods=['GET' , 'POST'])
 def login():
 
@@ -98,7 +100,7 @@ def signup():
 
 @app.route('/dfs.html')
 def DFS():
-    return render_template('pageInProgress.html')
+    return render_template('dfs.html')
 
 
 # Running the application

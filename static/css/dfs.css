@@ -7,14 +7,14 @@
 }
 
 body {
-    background: #f5f5f7;
+    background: #f0f7ff; /* Light blue background */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
 }
 
-
+/* Main visual section - darker than other elements */
 .visual {
     width: 100%;
     height: calc(100vh - 120px);
@@ -32,28 +32,13 @@ body {
     flex: 1;
 }
 
-
-.information-text {
-    color: white;
-    position: absolute;
-    bottom: 300px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: inline-block;
-    padding: 10px;
-    line-height: 1.8;
-    background: rgba(0, 0, 0, 0.6);
-}
-
-
-
-
+/* Element data box - hidden by default */
 .element-data {
     width: 90%;
     max-width: 600px;
-    background: rgba(75, 85, 99, 0.8); /* Grey tinted background */
-    border: 2px solid #374151; /* Darker grey border */
-    display: none; 
+    background: rgba(30, 60, 120, 0.8); /* Blue tinted background */
+    border: 2px solid #1e40af; /* Darker blue border */
+    display: none; /* Hidden by default */
     align-items: center;
     justify-content: center;
     font-size: 18px;
@@ -70,13 +55,13 @@ body {
 
 .element-data:hover {
     transform: translateY(5px);
-    box-shadow: 0 8px 25px rgba(30, 64, 175, 0.4); 
+    box-shadow: 0 8px 25px rgba(30, 64, 175, 0.4); /* Blue shadow */
 }
 
-
+/* Input area - now at the top */
 .user-input {
     width: 100%;
-    background: linear-gradient(135deg, #ffffff, #e0f2fe); 
+    background: linear-gradient(135deg, #ffffff, #e0f2fe); /* Light blue gradient */
     padding: 20px 25px;
     display: flex;
     flex-direction: row;
@@ -98,7 +83,7 @@ body {
 
 .Title {
     font-size: 20px;
-    color: #0c4a6e; 
+    color: #0c4a6e; /* Dark blue text */
     white-space: nowrap;
     margin-right: 20px;
 }
@@ -118,19 +103,19 @@ input[type="text"] {
 }
 
 input[type="text"]:focus {
-    box-shadow: 0 4px 15px rgba(30, 64, 175, 0.25);  
+    box-shadow: 0 4px 15px rgba(30, 64, 175, 0.25); /* Blue shadow */
     transform: translateY(-2px);
 }
 
-
+/* Input placeholder color & style */
 input::placeholder {
-    color: #94a3b8; 
+    color: #94a3b8; /* Blue-gray color */
     font-size: 14px;
 }
 
-
+/* Styling for the buttons */
 .button {
-    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    background: linear-gradient(135deg, #1e40af, #3b82f6); /* Blue gradient */
     color: white;
     border: none;
     padding: 8px 16px;
@@ -139,22 +124,22 @@ input::placeholder {
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(30, 64, 175, 0.25);
+    box-shadow: 0 2px 8px rgba(30, 64, 175, 0.25); /* Blue shadow */
     letter-spacing: 0.5px;
     white-space: nowrap;
 }
 
 .button:hover {
-    background: linear-gradient(135deg, #1e3a8a, #2563eb); 
+    background: linear-gradient(135deg, #1e3a8a, #2563eb); /* Darker blue gradient */
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(30, 64, 175, 0.4); 
+    box-shadow: 0 4px 15px rgba(30, 64, 175, 0.4); /* Blue shadow */
 }
 
 .button:active {
     transform: translateY(0);
 }
 
-
+/* Action buttons container */
 .action-buttons {
     display: flex;
     gap: 8px;
@@ -168,14 +153,14 @@ input::placeholder {
     flex-wrap: wrap;
 }
 
-
+/* Home button specific styles */
 #home-button {
     position: relative;
     top: 20px;
     margin-left: 15px;
 }
 
-
+/* Media queries for responsiveness */
 @media (max-width: 992px) {
     .user-input {
         flex-direction: column;
