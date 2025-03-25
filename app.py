@@ -28,17 +28,17 @@ def home():
 
 
 
-# Route for linkedlist Data Structure
+
 @app.route('/linkedlist.html')
 def linkedlist_page():
     return render_template('linkedlist.html') 
 
-# Route for the list of the Data Structures
+
 @app.route('/stack.html')
 def stack_page():
     return render_template('stack.html')
 
-# Route for the list of the Data Structures
+
 @app.route('/list.html')
 def list():
     return render_template('list.html')
@@ -149,6 +149,6 @@ def DFS():
     return render_template('dfs.html')
 
 
-# Running the application
+
 if __name__ == '__main__':
     app.run(debug=True) 
