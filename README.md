@@ -19,13 +19,19 @@ Technologies Used
 
 - Database: MySQL (for storing user data, if needed)
 
-# Project is still in development
+# Project is still in development ...
 
-![image](https://github.com/user-attachments/assets/1e401a83-4f9a-407f-879c-02a7d9f59070)
+![image](https://github.com/user-attachments/assets/129b4427-0862-4078-a854-e939ec369122)
 
 # Gallary
 
 ![image](https://github.com/user-attachments/assets/645d6f2b-fb49-460a-a711-3cbb24fae3d7)
+
+![image](https://github.com/user-attachments/assets/20f2cfa5-71c5-4cfd-ada6-cef16e4609f7)
+
+![image](https://github.com/user-attachments/assets/150c4c00-2b99-432c-aaab-9b44fcc7ec93)
+
+
 
 
 
