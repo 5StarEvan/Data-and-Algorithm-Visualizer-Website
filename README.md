@@ -23,6 +23,8 @@ Technologies Used
 
 ![image](https://github.com/user-attachments/assets/1e401a83-4f9a-407f-879c-02a7d9f59070)
 
+# Gallary
+
 ![image](https://github.com/user-attachments/assets/645d6f2b-fb49-460a-a711-3cbb24fae3d7)
 
 
