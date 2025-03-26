@@ -21,7 +21,7 @@ Technologies Used
 
 # Project is still in development ...
 
-![image](https://github.com/user-attachments/assets/1e401a83-4f9a-407f-879c-02a7d9f59070)
+![image](https://github.com/user-attachments/assets/129b4427-0862-4078-a854-e939ec369122)
 
 # Gallary
 
