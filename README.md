@@ -7,9 +7,10 @@ Input Data: Users can input data to visualize.
 
 Data Structures: The website supports various data structures such as stack, queues, and trees for visualization.
 
+Algorithms: The website suppots various algorithms such as, DFS , BFS and more for visualization
+
 Real-Time Visualization: As users input their data, the visualization is dynamically updated.
 
-Customizable Views: Users can choose from multiple chart types, including bar graphs, pie charts, and line graphs.
 
 
 Technologies Used
