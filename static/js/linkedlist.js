@@ -179,7 +179,7 @@ function animateSearch(currentIndex, targetValue) {
                 .style("fill", "#00CC66"); 
                 
             
-            displayResult(`Found value ${targetValue} at index ${currentIndex}!`, true);
+            displayResult(`Found value ${targetValue} at index ${currentIndex} !`, true);
             searchAnimationInProgress = false;
         }, 500);
     } else {

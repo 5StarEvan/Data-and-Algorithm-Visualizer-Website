@@ -146,7 +146,7 @@ body {
 }
 
 
-.navigation-bar-logo {
+.title {
   color: #fff;
   font-size: 1.5rem;
   font-weight: 700;
@@ -154,15 +154,6 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-}
-
-.navigation-bar-logo::before {
-  content: "";
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  background: var(--secondary-color);
-  border-radius: 50%;
 }
 
 .navigation-bar-links {
