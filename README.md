@@ -2,7 +2,7 @@
 
 Welcome to the Data Visualizer Website, a platform that allows users to input data and see live visualizations based on different data structures. This website helps users better understand their data through interactive and real-time graphics.
 
-Features
+**Features**
 
 Input Data: Users can input data to visualize.
 
