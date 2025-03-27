@@ -15,6 +15,7 @@ function displayResult(message, isSuccess = false) {
     
     
     if (isSuccess) {
+        
         elementData.style.borderColor = "#00CC66";
         elementData.style.backgroundColor = "rgba(0, 204, 102, 0.2)";
     } else {
