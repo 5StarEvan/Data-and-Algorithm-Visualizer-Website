@@ -12,16 +12,13 @@
 
 <body>
 
-    <nav class="navigation-bar">
+    <nav class="nav-bar">
         <div class="title">Data Structures and Algorithm Visualizer</div>
-        <button class="mobile-nav-toggle" id="mobileNavToggle">
-            <i class="fas fa-bars"></i>
-        </button>
-        <ul class="navigation-bar-links" id="navLinks">
-            <li><a href="#home" class="navigation-bar-link">Home</a></li>
-            <li><a href="#features" class="navigation-bar-link">Features</a></li>
-            <li><a href="#about" class="navigation-bar-link">About</a></li>
-            <li><a href="#contact" class="navigation-bar-link">Contact</a></li>
+        <ul class="navbar-links" id="navLinks">
+            <li><a href="#home" class="navbar-link">Home</a></li>
+            <li><a href="#features" class="navbar-link">Features</a></li>
+            <li><a href="#about" class="navbar-link">About</a></li>
+            <li><a href="#contact" class="navbar-link">Contact</a></li>
             {% if session.loggedin %}
                 <li class="user-name">Welcome, {{ session.first_name }} {{ session.last_name }}</li>
                 <button class="button" onclick="logout()">Logout</button>
@@ -29,18 +26,19 @@
                 <button class="button" onclick="login()">Login</button>
                 <button class="button" onclick="signup()">Sign up</button>
             {% endif %}
+
         </ul>
     </nav>
 
 
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1 class="hero-title">Visualize Code <span class="text-gradient">Like Never Before</span></h1>
-            <p class="hero-description">Transform complex data into beautiful, interactive visualizations.</p>
-            <div class="hero-buttons">
-                <a href="list.html" class="hero-call-to-action-button button button-primary">Get Started</a>
-                <a href="#about" class="button button-secondary">Learn More</a>
+    <section class="main" id="home">
+        <div class="main-content">
+            <h1 class="main-title">Visualize Code <span class="text-gradient">Like Never Before</span></h1>
+            <p class="main-description">Transform complex data into beautiful, interactive visualizations.</p>
+            <div class="main-buttons">
+                <a href="list.html" class="get-started-button">Get Started</a>
+                <a href="#about" class="learn-more-button">Learn More</a>
             </div>
         </div>
     </section>
@@ -50,29 +48,29 @@
         <div class="container">
             <h2 class="section-title">Our Features</h2>
             <p class="features-subtitle">Powerful tools to help you understand and visualize complex data structures and algorithms</p>
-            <div class="features-cards">
-                <div class="features-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="features-card-icon">
+            <div class="features-boxes">
+                <div class="features-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="features-box-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3 class="features-card-title">Interactive</h3>
-                    <p class="features-card-description">Allows user control and input</p>
+                    <h3 class="features-box-title">Interactive</h3>
+                    <p class="features-box-description">Allows user control and input</p>
                 </div>
-                
-                <div class="features-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="features-card-icon">
+
+                <div class="features-box" data-aos="fade-up" data-aos-delay="200">
+                    <div class="features-box-icon">
                         <i class="fas fa-code-branch"></i>
                     </div>
-                    <h3 class="features-card-title">Algorithm Visualization</h3>
-                    <p class="features-card-description">Watch algorithms in action with step-by-step visualization.</p>
+                    <h3 class="features-box-title">Algorithm Visualization</h3>
+                    <p class="features-box-description">Watch algorithms in action with step-by-step visualization.</p>
                 </div>
                 
-                <div class="features-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="features-card-icon">
+                <div class="features-box" data-aos="fade-up" data-aos-delay="300">
+                    <div class="features-box-icon">
                         <i class="fas fa-database"></i>
                     </div>
-                    <h3 class="features-card-title">Data Structure Models</h3>
-                    <p class="features-card-description">Interactive models of complex data structures like trees, graphs, with intuitive interfaces.</p>
+                    <h3 class="features-box-title">Data Structure Models</h3>
+                    <p class="features-box-description">Interactive models of complex data structures like trees, graphs, with intuitive interfaces.</p>
                 </div>
             </div>
         </div>
@@ -85,84 +83,24 @@
                 <div class="about-image">
                     <img src="/api/placeholder/400/400" alt="Profile Picture" class="profile-image">
                 </div>
-                <div class="about-info">
-                    <h3 class="about-name">Evan Guo</h3>
-                    <p class="about-title">Student</p>
-                    <p class="about-description">
+                <div class="about-me">
+                    <h3 class="about-me-name">Evan Guo</h3>
+                    <p class="about-me-title">Student</p>
+                    <p class="about-me-description">
                         I'm passionate about making complex concepts in computer science accessible to everyone. 
                         I've created this platform to help students and professionals visualize and understand data structures and algorithms.
                     </p>
-                    <div class="about-skills">
-                        <span class="skill-tag">Data Structures</span>
-                        <span class="skill-tag">Algorithms</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">Visualization</span>
+                    <div class="skills-info">
+                        <span class="skill">Data Structures</span>
+                        <span class="skill">Algorithms</span>
+                        <span class="skill">Python</span>
+                        <span class="skill">JavaScript</span>
+                        <span class="skill">Visualization</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="contact-subtitle">Have questions or suggestions? Reach out and I'll get back to you!</p>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h3>Email</h3>
-                            <p>To Be Added</p>
-                        </div>
-                    </div>
-                    <div class="contact-info-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h3>Phone</h3>
-                            <p>To Be Added</p>
-                        </div>
-                    </div>
-                    <div class="contact-info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h3>Location</h3>
-                            <p>To Be Added</p>
-                        </div>
-                    </div>
-                    <div class="contact-social">
-                        <a href="#" class="contact-social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="contact-social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="contact-social-link"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Your Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="button button-primary">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
 
     <footer class="footer">
         <div class="container">
@@ -176,7 +114,6 @@
                     <li><a href="#" class="footer-link">Privacy Policy</a></li>
                     <li><a href="#" class="footer-link">Terms of Service</a></li>
                 </ul>
-                <div class="footer-divider"></div>
             </div>
         </div>
     </footer>
