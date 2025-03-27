@@ -3,6 +3,7 @@
 Welcome to the Data Visualizer Website, a platform that allows users to input data and see live visualizations based on different data structures. This website helps users better understand their data through interactive and real-time graphics.
 
 Features
+
 Input Data: Users can input data to visualize.
 
 Data Structures: The website supports various data structures such as stack, queues, and trees for visualization.
@@ -21,7 +22,7 @@ Technologies Used
 
 # Devopment
 
-The Data and Algorithm Visualizer website was created and developed by Evan Guo. It serves the purpose of providing a visual representation of challenging algorithms and data structures in computer science, a topic that often stumps students at first.
+VisuoEG was created and developed by Evan Guo. It serves the purpose of providing a visual representation of challenging algorithms and data structures in computer science, a topic that often stumps students at first.
 
 # Project is still in development ...
 
