@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #f0f7ff;
+    background-color: #f5f5f5;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -40,7 +40,7 @@ body {
     stroke-dashoffset: 166;
     stroke-width: 2;
     stroke-miterlimit: 10;
-    stroke: #1a73e8;
+    stroke: #4b5563;
     fill: none;
     animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
 }
@@ -50,7 +50,7 @@ body {
     stroke-dasharray: 48;
     stroke-dashoffset: 48;
     stroke-width: 3;
-    stroke: #1a73e8;
+    stroke: #4b5563;
     animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
 }
 
@@ -61,21 +61,16 @@ body {
 }
 
 .success-message h1 {
-    color: #0d47a1;
+    color: #374151;
     font-size: 28px;
     margin-bottom: 15px;
 }
 
-.success-message p {
-    color: #333;
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
+
 
 .home-button {
     display: inline-block;
-    background: linear-gradient(135deg, #1a73e8, #0d47a1);
+    background: linear-gradient(135deg, #4b5563, #374151);
     color: white;
     text-decoration: none;
     padding: 14px 30px;
@@ -87,7 +82,7 @@ body {
 
 .home-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(26, 115, 232, 0.4);
+    box-shadow: 0 5px 15px rgba(75, 85, 99, 0.4);
 }
 
 @media (max-width: 576px) {

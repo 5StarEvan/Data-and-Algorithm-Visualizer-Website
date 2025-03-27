@@ -39,7 +39,7 @@ function showFlashMessage(message) {
     flashMsg.style.top = '20px';
     flashMsg.style.left = '50%';
     flashMsg.style.transform = 'translateX(-50%)';
-    flashMsg.style.backgroundColor = '#4CAF50';
+    flashMsg.style.backgroundColor = '#44b377';
     flashMsg.style.color = 'white';
     flashMsg.style.padding = '15px 25px';
     flashMsg.style.borderRadius = '4px';
