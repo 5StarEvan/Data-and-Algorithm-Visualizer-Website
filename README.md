@@ -19,13 +19,14 @@ Technologies Used
 
 - Database: MySQL (for storing user data, if needed)
 
+# Devopment
+
+The Data and Algorithm Visualizer website was created and developed by Evan Guo. It serves the purpose of providing a visual representation of challenging algorithms and data structures in computer science, a topic that often stumps students at first.
+
 # Project is still in development ...
 
 ![image](https://github.com/user-attachments/assets/129b4427-0862-4078-a854-e939ec369122)
 
-#Devopment
-
-The Data and Algorithm Visualizer website was created and developed by Evan Guo. It serves the purpose of providing a visual representation of challenging algorithms and data structures in computer science, a topic that often stumps students at first.
 
 # Gallary
 
