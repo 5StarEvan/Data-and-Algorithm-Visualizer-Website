@@ -26,8 +26,7 @@ VisuoEG was created and developed by Evan Guo. It serves the purpose of providin
 
 # Project is still in development ...
 
-![image](https://github.com/user-attachments/assets/129b4427-0862-4078-a854-e939ec369122)
-
+![image](https://github.com/user-attachments/assets/a3e829c0-3175-4c22-ad72-94a1f18a1d7b)
 
 # Gallary
 
