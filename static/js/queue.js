@@ -75,47 +75,31 @@ function removeValue() {
 }
 
 
-const CONTAINER_DETAILS = {
-    width: 600,     
-    height: 100,    
-    maxWidth: 0,    
-    strokeWidth: 10, 
-    rectWidth: 60,  
-    rectHeight: 60, 
-    rectSpacing: 10, 
-    leftPadding: 20, 
-    rightPadding: 20 
-};
+const containerDetails = { width: 600,  height: 100,  maxWidth: 0,  strokeWidth: 10, rectWidth: 60,  rectHeight: 60, rectSpacing: 10,  leftPadding: 20, rightPadding: 20 }
 
 function display(isEnqueue = false, dequeuedValue = null) {
     
     const container = document.getElementById("queue-container");
-    if (!container) return;
+    if (!container){
+        return;
+    } 
     
     
     container.innerHTML = "";
-    
-    
-    CONTAINER_DETAILS.maxWidth = window.innerWidth * 0.75; 
-    
-    
-    const requiredWidth = (queue.length * (CONTAINER_DETAILS.rectWidth + CONTAINER_DETAILS.rectSpacing)) + 
-                          CONTAINER_DETAILS.leftPadding + CONTAINER_DETAILS.rightPadding;
-    
-    
-    const containerWidth = Math.min(Math.max(600, requiredWidth), CONTAINER_DETAILS.maxWidth);
-    
-    
+    containerDetails.maxWidth = window.innerWidth * 0.75; 
+    const requiredWidth = (queue.length * (containerDetails.rectWidth + containerDetails.rectSpacing)) + 
+                          containerDetails.leftPadding + containerDetails.rightPadding;
+    const containerWidth = Math.min(Math.max(600, requiredWidth), containerDetails.maxWidth);
     container.style.width = `${containerWidth}px`;
-    container.style.height = `${CONTAINER_DETAILS.height}px`;
-    container.style.border = `${CONTAINER_DETAILS.strokeWidth}px solid #FFFFFF`; 
+    container.style.height = `${containerDetails.height}px`;
+    container.style.border = `${containerDetails.strokeWidth}px solid #FFFFFF`; 
     container.style.borderLeft = "none"; 
     container.style.borderRight = "none"; 
     container.style.display = "flex";
     container.style.flexDirection = "row"; 
     container.style.justifyContent = "center"; 
     container.style.alignItems = "center"; 
-    container.style.padding = `0 ${CONTAINER_DETAILS.rightPadding}px 0 ${CONTAINER_DETAILS.leftPadding}px`;
+    container.style.padding = `0 ${containerDetails.rightPadding}px 0 ${containerDetails.leftPadding}px`;
     container.style.boxSizing = "border-box";
     container.style.position = "absolute"; 
     container.style.top = "50%"; 
@@ -128,19 +112,17 @@ function display(isEnqueue = false, dequeuedValue = null) {
     container.style.zIndex = "10"; 
     
     
-    let isOverflowing = requiredWidth > CONTAINER_DETAILS.maxWidth;
+    let Overflowing = requiredWidth > containerDetails.maxWidth;
     
     
-    if (isOverflowing) {
+    if (Overflowing) {
         
-        const availableWidth = CONTAINER_DETAILS.maxWidth - CONTAINER_DETAILS.leftPadding - CONTAINER_DETAILS.rightPadding;
+        const availableWidth = containerDetails.maxWidth - containerDetails.leftPadding - containerDetails.rightPadding;
         const totalItems = queue.length;
         const widthPerItem = availableWidth / totalItems;
-        
-        
-        const scaleFactor = widthPerItem / (CONTAINER_DETAILS.rectWidth + CONTAINER_DETAILS.rectSpacing);
-        CONTAINER_DETAILS.rectWidth = Math.max(30, Math.floor(CONTAINER_DETAILS.rectWidth * scaleFactor)); 
-        CONTAINER_DETAILS.rectSpacing = Math.max(5, Math.floor(CONTAINER_DETAILS.rectSpacing * scaleFactor)); 
+        const scaleFactor = widthPerItem / (containerDetails.rectWidth + containerDetails.rectSpacing);
+        containerDetails.rectWidth = Math.max(30, Math.floor(containerDetails.rectWidth * scaleFactor)); 
+        containerDetails.rectSpacing = Math.max(5, Math.floor(containerDetails.rectSpacing * scaleFactor)); 
     }
     
     
@@ -179,14 +161,14 @@ function display(isEnqueue = false, dequeuedValue = null) {
         const rect = document.createElement("div");
         rect.className = "queue-item";
         rect.textContent = value;
-        rect.style.width = `${CONTAINER_DETAILS.rectWidth}px`;
-        rect.style.height = `${CONTAINER_DETAILS.rectHeight}px`;
+        rect.style.width = `${containerDetails.rectWidth}px`;
+        rect.style.height = `${containerDetails.rectHeight}px`;
         rect.style.backgroundColor = "#3498db"; 
         rect.style.color = "white";
         rect.style.display = "flex";
         rect.style.alignItems = "center";
         rect.style.justifyContent = "center";
-        rect.style.marginRight = `${CONTAINER_DETAILS.rectSpacing}px`;
+        rect.style.marginRight = `${containerDetails.rectSpacing}px`;
         rect.style.borderRadius = "6px"; 
         rect.style.fontWeight = "bold";
         rect.style.fontSize = "18px"; 
@@ -223,13 +205,11 @@ function display(isEnqueue = false, dequeuedValue = null) {
         dequeuedContainer.style.pointerEvents = "none";
         dequeuedContainer.style.zIndex = "20"; 
         container.appendChild(dequeuedContainer);
-        
-        
         const dequeuedRect = document.createElement("div");
         dequeuedRect.className = "queue-item dequeued";
         dequeuedRect.textContent = dequeuedValue;
-        dequeuedRect.style.width = `${CONTAINER_DETAILS.rectWidth}px`;
-        dequeuedRect.style.height = `${CONTAINER_DETAILS.rectHeight}px`;
+        dequeuedRect.style.width = `${containerDetails.rectWidth}px`;
+        dequeuedRect.style.height = `${containerDetails.rectHeight}px`;
         dequeuedRect.style.backgroundColor = "#2980b9"; 
         dequeuedRect.style.color = "white";
         dequeuedRect.style.display = "flex";
@@ -238,14 +218,13 @@ function display(isEnqueue = false, dequeuedValue = null) {
         dequeuedRect.style.position = "absolute";
         dequeuedRect.style.top = "50%";
         dequeuedRect.style.transform = "translateY(-50%)"; 
-        dequeuedRect.style.left = `${CONTAINER_DETAILS.leftPadding}px`; 
+        dequeuedRect.style.left = `${containerDetails.leftPadding}px`; 
         dequeuedRect.style.borderRadius = "6px"; 
         dequeuedRect.style.fontWeight = "bold";
         dequeuedRect.style.fontSize = "18px"; 
         dequeuedRect.style.border = "2px solid #FF9500"; 
         dequeuedRect.style.boxShadow = "0 0 10px rgba(255, 149, 0, 0.6)"; 
-        dequeuedRect.style.animation = "improvedDequeueAnimation 1.2s ease-in-out forwards";
-        
+        dequeuedRect.style.animation = "improvedDequeueAnimation 1.2s ease-in-out forwards";  
         dequeuedContainer.appendChild(dequeuedRect);
     }
     
@@ -264,45 +243,42 @@ function display(isEnqueue = false, dequeuedValue = null) {
                     opacity: 1;
                 }
             }
-            
             @keyframes improvedDequeueAnimation {
                 0% { 
                     transform: translateY(-50%) scale(1);
                     opacity: 1;
-                    left: ${CONTAINER_DETAILS.leftPadding}px;
+                    left: ${containerDetails.leftPadding}px;
                     box-shadow: 0 0 10px rgba(255, 149, 0, 0.6);
                 }
                 10% {
                     transform: translateY(-50%) scale(1.1);
                     opacity: 1;
-                    left: ${CONTAINER_DETAILS.leftPadding}px;
+                    left: ${containerDetails.leftPadding}px;
                     box-shadow: 0 0 15px rgba(255, 149, 0, 0.8);
                 }
                 30% {
                     transform: translateY(-50%) scale(1);
                     opacity: 1;
-                    left: ${CONTAINER_DETAILS.leftPadding - 10}px;
+                    left: ${containerDetails.leftPadding - 10}px;
                     box-shadow: 0 0 10px rgba(255, 149, 0, 0.6);
                 }
                 60% {
                     transform: translateY(-50%) scale(0.95);
                     opacity: 0.8;
-                    left: ${CONTAINER_DETAILS.leftPadding - 40}px;
+                    left: ${containerDetails.leftPadding - 40}px;
                     box-shadow: 0 0 8px rgba(255, 149, 0, 0.4);
                 }
                 100% { 
                     transform: translateY(-50%) scale(0.8) rotate(-10deg);
                     opacity: 0;
-                    left: -${CONTAINER_DETAILS.rectWidth + 20}px;
+                    left: -${containerDetails.rectWidth + 20}px;
                     box-shadow: 0 0 0 rgba(255, 149, 0, 0);
                 }
-            }
-            
+    }   
             @keyframes fadeIn {
                 0% { opacity: 0; }
                 100% { opacity: 1; }
             }
-            
             #addedElements {
                 position: fixed;
                 top: 15px; /* Reduced from 20px */
@@ -348,6 +324,7 @@ function display(isEnqueue = false, dequeuedValue = null) {
                 border-radius: 4px; /* Smaller radius */
             }
         `;
+
         document.head.appendChild(styleSheet);
     }
     
@@ -366,31 +343,30 @@ function display(isEnqueue = false, dequeuedValue = null) {
 
 window.onload = function() {
     
-    if (!document.getElementById("queue-container")) {
-        const queueContainer = document.createElement("div");
+    if (!document.getElementById("queue-container")) {  
+        
+        const queueContainer = document.createElement("div"); 
         queueContainer.id = "queue-container";
         document.body.appendChild(queueContainer);
+
     }
     
     
     if (!document.getElementById("addedElements")) {
+
         const elementData = document.createElement("div");
         elementData.id = "addedElements";
         elementData.style.display = "none";
         document.body.appendChild(elementData);
+
     }
-    
-    
     document.body.style.minHeight = "100vh";
     document.body.style.margin = "0";
     document.body.style.padding = "0";
     document.body.style.position = "relative";
     
-    
     display();
 };
 
 
-window.addEventListener('resize', function() {
-    display();
-});
+window.addEventListener('resize', function() { display(); });

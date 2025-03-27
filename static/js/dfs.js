@@ -8,7 +8,7 @@ function list(){
 }
 
 
-function displayResult(message, isSuccess = false) {
+function displayR(message, isSuccess = false) {
     const elementData = document.getElementById("addedElements");
     elementData.textContent = message;
     elementData.style.display = "block";
@@ -24,9 +24,7 @@ function displayResult(message, isSuccess = false) {
     
     
     elementData.style.animation = "none";
-    setTimeout(() => {
-        elementData.style.animation = "fadeIn 0.5s ease-in-out";
-    }, 10);
+    setTimeout(() => {elementData.style.animation = "fadeIn 0.5s ease-in-out";}, 10);
 }
 
 dataset = [];

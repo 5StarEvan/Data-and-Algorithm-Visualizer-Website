@@ -99,10 +99,10 @@ function searchValue() {
     }
     
     
-    const numericValue = Number(inputValue);
+    const numVal = Number(inputValue);
 
     
-    if (isNaN(numericValue)) {
+    if (isNaN(numVal)) {
         
         displayResult("Please enter a valid number!"); 
         return;
@@ -120,13 +120,13 @@ function searchValue() {
             d3.selectAll(".node")
                 .filter((d, i) => i === index)
                 .select("rect")
-                .style("fill", dataset[index] === numericValue ? "#00CC66" : "#FF9500");
+                .style("fill", dataset[index] === numVal ? "#00CC66" : "#FF9500");
             
             
-            if (dataset[index] === numericValue) {
-                displayResult(`Index ${index} contains value ${numericValue}: TRUE`, true);
+            if (dataset[index] === numVal) {
+                displayResult(`Index ${index} contains value ${numVal}: TRUE`, true);
             } else {
-                displayResult(`Index ${index} contains value ${numericValue}: FALSE`);
+                displayResult(`Index ${index} contains value ${numVal}: FALSE`);
             }
             return;
         }
@@ -134,10 +134,10 @@ function searchValue() {
 
     
     
-    const targetIndex = dataset.indexOf(numericValue);
+    const targetIndex = dataset.indexOf(numVal);
     
     
-    animateSearch(0, numericValue);
+    animateSearch(0, numVal);
 }
 
 
@@ -159,15 +159,11 @@ function animateSearch(currentIndex, targetValue) {
     }
     
     
-    d3.selectAll(".node")
-        .filter((d, i) => i === currentIndex)
-        .select("rect")
-        
-        .style("fill", "#FF9500"); 
+    d3.selectAll(".node").filter((d, i) => i === currentIndex).select("rect").style("fill", "#FF9500"); 
     
     
     displayResult(`Searching at index ${currentIndex}...`);
-    
+
     
     if (dataset[currentIndex] === targetValue) {
         
@@ -184,9 +180,7 @@ function animateSearch(currentIndex, targetValue) {
         }, 500);
     } else {
         
-        searchAnimationTimer = setTimeout(() => {
-            animateSearch(currentIndex + 1, targetValue);
-        }, 500);
+        searchAnimationTimer = setTimeout(() => { animateSearch(currentIndex + 1, targetValue);}, 500);
     }
 }
 
@@ -195,22 +189,18 @@ function addValue() {
     
     const inputElement = document.getElementById("Input-Value"); 
     const indexElement = document.getElementById("Input-Index");
-    
-    
     const inputValue = inputElement.value.trim();
     const indexValue = indexElement.value.trim();
-    
-    
+
     if (inputValue === "") {
         displayResult("Please enter a value!"); 
         return; 
     }
     
-    
-    const numericValue = Number(inputValue);
+    const numVal = Number(inputValue);
 
     
-    if (isNaN(numericValue)) {
+    if (isNaN(numVal)) {
         displayResult("Please enter a valid number!"); 
         return;
     }
@@ -226,7 +216,7 @@ function addValue() {
     
     if (index === -1) {
         
-        dataset.push(numericValue);
+        dataset.push(numVal);
         
         
         if (nodePositions.length > 0) {
@@ -238,16 +228,13 @@ function addValue() {
             });
         } else {
             
-            nodePositions.push({ 
-                x: visualWidth / 2, 
-                y: visualHeight / 2 
-            });
+            nodePositions.push({ x: visualWidth / 2, y: visualHeight / 2  });
         }
         
-        displayResult(`Added value ${numericValue} to the end of the dataset at index ${dataset.length - 1}`, true);
+        displayResult(`Added value ${numVal} to the end of the dataset at index ${dataset.length - 1}`, true);
     } else {
         
-        dataset.splice(index, 0, numericValue);
+        dataset.splice(index, 0, numVal);
         
         
         let newPosition;
@@ -281,7 +268,7 @@ function addValue() {
         
         nodePositions.splice(index, 0, newPosition);
         
-        displayResult(`Added value ${numericValue} at index ${index}`, true);
+        displayResult(`Added value ${numVal} at index ${index}`, true);
     }
     
     inputElement.value = ""; 
@@ -326,11 +313,11 @@ function removeValue() {
     }
     
     
-    const numericValue = Number(inputValue);
+    const numVal = Number(inputValue);
 
     
-    if (!isNaN(numericValue)) {
-        const index = dataset.indexOf(numericValue); 
+    if (!isNaN(numVal)) {
+        const index = dataset.indexOf(numVal); 
 
         
         if (index !== -1) {
@@ -340,7 +327,7 @@ function removeValue() {
             inputElement.value = ""; 
             indexElement.value = ""; 
             
-            displayResult(`Removed value ${numericValue} from the dataset`, true);
+            displayResult(`Removed value ${numVal} from the dataset`, true);
         } else {
             displayResult("The number is not in the dataset!"); 
         }
