@@ -1,4 +1,3 @@
-
 function home() {
     window.location.href = "home.html";
 }
@@ -7,12 +6,10 @@ function list(){
     window.location.href = "list.html";
 }
 
-
 function displayR(message, isSuccess = false) {
     const elementData = document.getElementById("addedElements");
     elementData.textContent = message;
     elementData.style.display = "block";
-    
     
     if (isSuccess) {
         elementData.style.borderColor = "#00CC66";
@@ -22,58 +19,46 @@ function displayR(message, isSuccess = false) {
         elementData.style.backgroundColor = "rgba(255, 149, 0, 0.2)";
     }
     
-    
     elementData.style.animation = "none";
     setTimeout(() => {elementData.style.animation = "fadeIn 0.5s ease-in-out";}, 10);
 }
 
-
-const numValues =  64;
+const numValues = 64;
 
 const dataset = Array.from({ length: numValues }, (_, i) => ({ value: i + 1 }));
 
 let visualCanvas, twoDArr;
 
-
-
-function startDFSAnimation(){
-
-    const startValue = document.getElementById("Start-DFS-Value").value;
-    const endValue = document.getElementById("End-DFS-Value").value;
-    let speedValue = document.getElementById("Speed-DFS-Value").value;
+function startBFSAnimation(){
+    const startValue = document.getElementById("Start-BFS-Value").value;
+    const endValue = document.getElementById("End-BFS-Value").value;
+    let speedValue = document.getElementById("Speed-BFS-Value").value;
 
     if(speedValue === ""){
         speedValue = 1;
     }
 
     if(startValue === "" || endValue === ""){
-    
         displayR("Input Error"); 
     }else{
-
-        let DFSresult = runDFS(Number(startValue), Number(endValue));
-        animateDFS(DFSresult, Number(speedValue));
-        console.log(DFSresult);
+        let BFSresult = runBFS(Number(startValue), Number(endValue));
+        animateBFS(BFSresult, Number(speedValue));
+        console.log(BFSresult);
     }
-
 }
 
-function animateDFS(dfsOrder, speed) {
-
+function animateBFS(bfsOrder, speed) {
     twoDArr.selectAll("rect")
         .attr("fill", "#3498db");
         
-    dfsOrder.forEach((value, index) => {
+    bfsOrder.forEach((value, index) => {
         setTimeout(() => {
             const rect = twoDArr.selectAll("rect")
                 .filter((d) => d.value === value);
-            rect.attr("fill", index === dfsOrder.length - 1 ? "#00CC66" : "#FF9500");
-            displayR(`Step ${index + 1}: Visited ${value}`, index === dfsOrder.length - 1);
+            rect.attr("fill", index === bfsOrder.length - 1 ? "#00CC66" : "#FF9500");
+            displayR(`Step ${index + 1}: Visited ${value}`, index === bfsOrder.length - 1);
         }, index * 500 / speed); 
-
     });
-
-
 }
 
 function Reset (){
@@ -81,8 +66,6 @@ function Reset (){
 }
 
 function display() {    
-
-
     d3.select(".visual").selectAll("svg").remove();
 
     const visualContainer = document.querySelector(".visual");
@@ -94,8 +77,6 @@ function display() {
     const gridW = numCol * gridSize;
     const gridH = Math.ceil(dataset.length / numCol) * gridSize;
     
-    
-
     visualCanvas = d3.select(".visual")
         .append("svg")
         .attr("width", visualWidth)
@@ -105,7 +86,6 @@ function display() {
         .style("justify-content", "center")
         .style("align-items", "center");
     
-
     twoDArr = visualCanvas.append("g")
         .attr("transform", `translate(${(visualWidth - gridW) / 2}, ${(visualHeight - gridH) / 2})`);
 
@@ -135,10 +115,9 @@ function display() {
         .style("fill", "white")
         .style("font-weight", "bold")
         .text(d => d.value);
-
 }
 
-function runDFS(startNum, endNum) {
+function runBFS(startNum, endNum) {
     const ROW = Math.ceil(Math.sqrt(dataset.length));
     const COL = Math.ceil(dataset.length / ROW);
 
@@ -151,14 +130,14 @@ function runDFS(startNum, endNum) {
         return true;
     }
 
-    function DFS(row, col, vis) {
-        let st = [];
-        st.push([row, col]);
+    function BFS(row, col, vis) {
+        let q = [];
+        q.push([row, col]);
 
-        let dfsOrder = [];  
+        let bfsOrder = [];  
 
-        while (st.length !== 0) {
-            let curr = st.pop();
+        while (q.length !== 0) {
+            let curr = q.shift();
             let row = curr[0];
             let col = curr[1];
 
@@ -168,7 +147,7 @@ function runDFS(startNum, endNum) {
             const index = row * COL + col;
             const cell = dataset[index];
 
-            dfsOrder.push(cell.value);
+            bfsOrder.push(cell.value);
 
             if (cell.value === endNum) {
                 break;
@@ -179,12 +158,12 @@ function runDFS(startNum, endNum) {
                 let adjy = col + dCol[i];
     
                 if (isValid(vis, adjx, adjy)) {
-                    st.push([adjx, adjy]);
+                    q.push([adjx, adjy]);
                 }
             }
         }
 
-        return dfsOrder;  
+        return bfsOrder;  
     }
 
     let startIndex = dataset.findIndex(item => item.value === startNum);
@@ -193,15 +172,11 @@ function runDFS(startNum, endNum) {
 
     let vis = Array.from(Array(ROW), () => Array(COL).fill(false));
 
-    let result = DFS(startRow, startCol, vis);
+    let result = BFS(startRow, startCol, vis);
     
     return result;  
 }
 
-
 window.onload = function() {
-    
     display();
-
 };
-

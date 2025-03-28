@@ -22,7 +22,7 @@ function reset() {
 }
 
 
-function displayResult(message, isSuccess = false) {
+function displayR(message, isSuccess = false) {
     
     const elementData = document.getElementById("addedElements");
     elementData.textContent = message;
@@ -55,20 +55,20 @@ function validateIndex(indexValue, maxIndex, allowEqual = false) {
     
     
     if (isNaN(index)) {
-        displayResult("Please enter a valid index number!");
+        displayR("Please enter a valid index number!");
         return null;
     }
     
     
     if (!Number.isInteger(index)) {
-        displayResult("Index must be an integer!");
+        displayR("Index must be an integer!");
         return null;
     }
     
     
     const maxAllowed = allowEqual ? maxIndex : maxIndex - 1;
     if (index < 0 || index > maxAllowed) {
-        displayResult(`Index must be between 0 and ${maxAllowed} !`);
+        displayR(`Index must be between 0 and ${maxAllowed} !`);
         return null;
     }
     
@@ -94,7 +94,7 @@ function searchValue() {
     
     
     if (inputValue === "") {
-        displayResult("Please enter a value!"); 
+        displayR("Please enter a value!"); 
         return; 
     }
     
@@ -104,7 +104,7 @@ function searchValue() {
     
     if (isNaN(numVal)) {
         
-        displayResult("Please enter a valid number!"); 
+        displayR("Please enter a valid number!"); 
         return;
     }
 
@@ -124,9 +124,9 @@ function searchValue() {
             
             
             if (dataset[index] === numVal) {
-                displayResult(`Index ${index} contains value ${numVal}: TRUE`, true);
+                displayR(`Index ${index} contains value ${numVal}: TRUE`, true);
             } else {
-                displayResult(`Index ${index} contains value ${numVal}: FALSE`);
+                displayR(`Index ${index} contains value ${numVal}: FALSE`);
             }
             return;
         }
@@ -151,7 +151,7 @@ function animateSearch(currentIndex, targetValue) {
     
     if (currentIndex >= dataset.length) {
         
-        displayResult(`Value ${targetValue} not found in the dataset!`);
+        displayR(`Value ${targetValue} not found in the dataset!`);
         searchAnimationInProgress = false;
         
         display(); 
@@ -162,7 +162,7 @@ function animateSearch(currentIndex, targetValue) {
     d3.selectAll(".node").filter((d, i) => i === currentIndex).select("rect").style("fill", "#FF9500"); 
     
     
-    displayResult(`Searching at index ${currentIndex}...`);
+    displayR(`Searching at index ${currentIndex}...`);
 
     
     if (dataset[currentIndex] === targetValue) {
@@ -175,7 +175,7 @@ function animateSearch(currentIndex, targetValue) {
                 .style("fill", "#00CC66"); 
                 
             
-            displayResult(`Found value ${targetValue} at index ${currentIndex} !`, true);
+            displayR(`Found value ${targetValue} at index ${currentIndex} !`, true);
             searchAnimationInProgress = false;
         }, 500);
     } else {
@@ -193,7 +193,7 @@ function addValue() {
     const indexValue = indexElement.value.trim();
 
     if (inputValue === "") {
-        displayResult("Please enter a value!"); 
+        displayR("Please enter a value!"); 
         return; 
     }
     
@@ -201,7 +201,7 @@ function addValue() {
 
     
     if (isNaN(numVal)) {
-        displayResult("Please enter a valid number!"); 
+        displayR("Please enter a valid number!"); 
         return;
     }
     
@@ -231,7 +231,7 @@ function addValue() {
             nodePositions.push({ x: visualWidth / 2, y: visualHeight / 2  });
         }
         
-        displayResult(`Added value ${numVal} to the end of the dataset at index ${dataset.length - 1}`, true);
+        displayR(`Added value ${numVal} to the end of the dataset at index ${dataset.length - 1}`, true);
     } else {
         
         dataset.splice(index, 0, numVal);
@@ -268,7 +268,7 @@ function addValue() {
         
         nodePositions.splice(index, 0, newPosition);
         
-        displayResult(`Added value ${numVal} at index ${index}`, true);
+        displayR(`Added value ${numVal} at index ${index}`, true);
     }
     
     inputElement.value = ""; 
@@ -289,7 +289,7 @@ function removeValue() {
     
     
     if (inputValue === "" && indexValue === "") {
-        displayResult("Please enter either a value or an index to remove!");
+        displayR("Please enter either a value or an index to remove!");
         return;
     }
     
@@ -306,7 +306,7 @@ function removeValue() {
             inputElement.value = ""; 
             indexElement.value = ""; 
             
-            displayResult(`Removed value ${removedValue} from index ${index}`, true);
+            displayR(`Removed value ${removedValue} from index ${index}`, true);
             display(); 
             return;
         }
@@ -327,12 +327,12 @@ function removeValue() {
             inputElement.value = ""; 
             indexElement.value = ""; 
             
-            displayResult(`Removed value ${numVal} from the dataset`, true);
+            displayR(`Removed value ${numVal} from the dataset`, true);
         } else {
-            displayResult("The number is not in the dataset!"); 
+            displayR("The number is not in the dataset!"); 
         }
     } else {
-        displayResult("Please enter a valid number!"); 
+        displayR("Please enter a valid number!"); 
     }
 
     display(); 

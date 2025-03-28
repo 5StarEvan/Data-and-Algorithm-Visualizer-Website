@@ -8,7 +8,7 @@ function list(){
 }
 
 
-function displayResult(message, isSuccess = false) {
+function displayR(message, isSuccess = false) {
     const elementData = document.getElementById("addedElements");
     elementData.textContent = message;
     elementData.style.display = "block";
@@ -43,7 +43,7 @@ function pushValue() {
     const inputValue = inputElement.value.trim();
 
     if (inputValue === "") {
-        displayResult("Please enter a value!");
+        displayR("Please enter a value!");
         return;
     }
 
@@ -54,9 +54,9 @@ function pushValue() {
     if (!isNaN(numericValue)) {
         dataset.push(numericValue); 
         inputElement.value = ""; 
-        displayResult(`Added value ${numericValue} to the dataset`, true);
+        displayR(`Added value ${numericValue} to the dataset`, true);
     } else {
-        displayResult("Please enter a valid number!"); 
+        displayR("Please enter a valid number!"); 
     }
 
     display(true); 
@@ -66,10 +66,10 @@ function pushValue() {
 function pop() {
     if (dataset.length > 0) {
         const poppedValue = dataset.pop();
-        displayResult(`Value ${poppedValue} has been popped!`);
+        displayR(`Value ${poppedValue} has been popped!`);
         display(false, poppedValue); 
     } else {
-        displayResult("Stack is empty!");
+        displayR("Stack is empty!");
         display(); 
     }
 }

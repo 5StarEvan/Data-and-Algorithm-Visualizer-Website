@@ -8,7 +8,7 @@ function list(){
 }
 
 
-function displayResult(message, isSuccess = false) {
+function displayR(message, isSuccess = false) {
     const elementData = document.getElementById("addedElements");
     elementData.textContent = message;
     elementData.style.display = "block";
@@ -44,7 +44,7 @@ function addValue() {
     const inputValue = inputElement.value.trim();
 
     if (inputValue === "") {
-        displayResult("Please enter a value!");
+        displayR("Please enter a value!");
         return;
     }
 
@@ -55,9 +55,9 @@ function addValue() {
     if (!isNaN(numericValue)) {
         queue.push(numericValue); 
         inputElement.value = ""; 
-        displayResult(`Added value ${numericValue} to the queue`, true);
+        displayR(`Added value ${numericValue} to the queue`, true);
     } else {
-        displayResult("Please enter a valid number!"); 
+        displayR("Please enter a valid number!"); 
     }
 
     display(true); 
@@ -67,10 +67,10 @@ function addValue() {
 function removeValue() {
     if (queue.length > 0) {
         const dequeuedValue = queue.shift(); 
-        displayResult(`Value ${dequeuedValue} has been dequeued!`);
+        displayR(`Value ${dequeuedValue} has been dequeued!`);
         display(false, dequeuedValue); 
     } else {
-        displayResult("Queue is empty!");
+        displayR("Queue is empty!");
         display(); 
     }
 }

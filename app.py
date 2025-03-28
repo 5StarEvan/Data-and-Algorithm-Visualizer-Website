@@ -149,6 +149,10 @@ def signup():
 def DFS():
     return render_template('dfs.html')
 
+@app.route("/bfs.html")
+def BFS():
+    return render_template('bfs.html')
+
 
 
 if __name__ == '__main__':
