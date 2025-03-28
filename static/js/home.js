@@ -7,7 +7,6 @@ function signup(){
 }
 
 function logout() {
-  
     localStorage.removeItem('userToken');
     sessionStorage.removeItem('userSession');
     
@@ -17,7 +16,6 @@ function logout() {
 window.onload = function() {
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('logout') === 'true') {
-     
         showFlashMessage('You have been logged out successfully!');
         
         history.replaceState(null, '', window.location.pathname);
@@ -25,13 +23,10 @@ window.onload = function() {
 };
 
 function showFlashMessage(message) {
-  
-    const existingFlashMsg = document.querySelector('.flash-message');
+        const existingFlashMsg = document.querySelector('.flash-message');
     if (existingFlashMsg) {
         existingFlashMsg.remove();
     }
-
-    // Create a flash message element
     const flashMsg = document.createElement('div');
     flashMsg.className = 'flash-message';
     flashMsg.textContent = message;
@@ -46,18 +41,10 @@ function showFlashMessage(message) {
     flashMsg.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
     flashMsg.style.zIndex = '1000';
     flashMsg.style.opacity = '0';
-    flashMsg.style.transition = 'opacity 0.5s ease-in-out';
-    
-    // Add to the page
+    flashMsg.style.transition = 'opacity 0.5s ease-in-out';    
     document.body.appendChild(flashMsg);
-    
-    // Trigger reflow to enable transition
     flashMsg.offsetHeight;
-    
-    // Fade in
     flashMsg.style.opacity = '1';
-    
-    // Fade out and remove after 3 seconds
     setTimeout(() => {
         flashMsg.style.opacity = '0';
         setTimeout(() => {
@@ -67,39 +54,50 @@ function showFlashMessage(message) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const navbar = document.querySelector('.navigation-bar');
+    const navbar = document.querySelector('.nav-bar');
     const mobileNavToggle = document.getElementById('mobileNavToggle');
     const navLinks = document.getElementById('navLinks');
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
+        const scrollY = window.scrollY;
+        
+        if (scrollY > 50) {
             navbar.classList.add('scrolled');
+            navbar.style.transform = `translateY(${scrollY > 100 ? '-5px' : '0'})`;
+            navbar.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
         } else {
             navbar.classList.remove('scrolled');
+            navbar.style.transform = 'translateY(0)';
+            navbar.style.boxShadow = 'none';
         }
     });
 
+
     mobileNavToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
-        mobileNavToggle.querySelector('i').classList.toggle('fa-bars');
-        mobileNavToggle.querySelector('i').classList.toggle('fa-times');
-    });
+        const icon = mobileNavToggle.querySelector('i');
+        
 
-    navLinks.querySelectorAll('.navigation-bar__link').forEach(link => {
-        link.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                mobileNavToggle.querySelector('i').classList.add('fa-bars');
-                mobileNavToggle.querySelector('i').classList.remove('fa-times');
-            }
-        });
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+
+
+        if (navLinks.classList.contains('active')) {
+            navLinks.style.transform = 'translateX(0)';
+            navLinks.style.opacity = '1';
+        } else {
+            navLinks.style.transform = 'translateX(100%)';
+            navLinks.style.opacity = '0';
+        }
     });
 
     const featureCards = document.querySelectorAll('.features__card');
     featureCards.forEach(card => {
         card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
+        card.style.transform = 'perspective(500px) rotateX(10deg)';
+        card.style.transition = 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
     });
+
 
     const animateOnScroll = () => {
         const elements = document.querySelectorAll('.features__card, .about__content, .contact__content');
@@ -111,18 +109,29 @@ document.addEventListener('DOMContentLoaded', function() {
             if (elementPosition < screenPosition) {
                 if (element.classList.contains('features__card')) {
                     const delay = element.dataset.aosDelay ? parseInt(element.dataset.aosDelay) / 1000 : 0;
-                    element.style.transition = `opacity 0.6s ease ${delay}s, transform 0.6s ease ${delay}s`;
+                    element.style.transition = `all 0.6s cubic-bezier(0.23, 1, 0.32, 1) ${delay}s`;
                     element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
+                    element.style.transform = 'perspective(500px) rotateX(0deg)';
                 } else {
-                    element.style.animation = 'zoomIn 0.8s forwards';
+                    // Advanced zoom and slide animation
+                    element.style.animation = 'zoomInSlide 0.8s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94)';
                 }
             }
         });
     };
 
-    window.addEventListener('scroll', animateOnScroll);
-    setTimeout(animateOnScroll, 100);
+
+    featureCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05) rotate(2deg)';
+            this.style.boxShadow = '0 15px 30px rgba(0,0,0,0.1)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) rotate(0deg)';
+            this.style.boxShadow = 'var(--shadow-small)';
+        });
+    });
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -141,108 +150,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    const contactForm = document.querySelector('.contact__form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            if (!name || !email || !subject || !message) {
-                showFormMessage('Please fill in all fields', 'error');
-                return;
-            }
-            
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                showFormMessage('Please enter a valid email address', 'error');
-                return;
-            }
-            
-            const formData = {
-                name,
-                email,
-                subject,
-                message
-            };
-            
-            console.log('Form data:', formData);
-            showFormMessage('Your message has been sent. Thank you!', 'success');
-            
-            contactForm.reset();
-        });
-    }
+    window.addEventListener('scroll', animateOnScroll);
+    setTimeout(animateOnScroll, 100);
 
-    function showFormMessage(text, type) {
-        const existingMessage = document.querySelector('.form-message');
-        if (existingMessage) {
-            existingMessage.remove();
-        }
-        
-        const messageElement = document.createElement('div');
-        messageElement.className = `form-message ${type === 'error' ? 'form-error' : 'form-success'}`;
-        messageElement.textContent = text;
-        
-        messageElement.style.padding = '10px 15px';
-        messageElement.style.marginTop = '15px';
-        messageElement.style.borderRadius = '5px';
-        messageElement.style.fontWeight = '500';
-        
-        if (type === 'error') {
-            messageElement.style.backgroundColor = '#fee2e2';
-            messageElement.style.color = '#b91c1c';
-            messageElement.style.border = '1px solid #fecaca';
-        } else {
-            messageElement.style.backgroundColor = '#dcfce7';
-            messageElement.style.color = '#166534';
-            messageElement.style.border = '1px solid #bbf7d0';
-        }
-        
-        const submitButton = document.querySelector('.contact__form button[type="submit"]');
-        submitButton.parentNode.insertBefore(messageElement, submitButton.nextSibling);
-        
-        setTimeout(() => {
-            messageElement.remove();
-        }, 5000);
-    }
 
     const heroContent = document.querySelector('.hero__content');
     if (heroContent) {
         setTimeout(() => {
             heroContent.style.opacity = '1';
-            heroContent.style.transform = 'translateY(0)';
+            heroContent.style.transform = 'translateY(0) perspective(1000px) rotateX(0deg)';
         }, 100);
     }
 
-    featureCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px)';
-            this.style.boxShadow = 'var(--shadow-medium)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            if (this.style.opacity === '1') {
-                this.style.transform = 'translateY(0)';
-                this.style.boxShadow = 'var(--shadow-small)';
-            }
-        });
-    });
 
     const socialLinks = document.querySelectorAll('.contact__social-link');
     socialLinks.forEach(link => {
         link.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px)';
+            this.style.transform = 'translateY(-10px) scale(1.1) rotate(5deg)';
+            this.style.color = 'var(--primary-color)';
         });
         
         link.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
+            this.style.transform = 'translateY(0) scale(1) rotate(0deg)';
+            this.style.color = 'inherit';
         });
-
     });
-    
 });
-
-  
