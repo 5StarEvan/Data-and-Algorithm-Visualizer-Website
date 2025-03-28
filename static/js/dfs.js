@@ -35,6 +35,16 @@ const dataset = Array.from({ length: numValues }, (_, i) => ({ value: i + 1 }));
 
 function startAnimation(){
 
+    const startValue = document.getElementById("Start-DFS-Value").value;
+    const endValue = document.getElementById("End-DFS-Value").value;
+
+    let DFSresult = [];
+    DFSresult = runDFS(startValue);
+
+}
+
+function displayDFS(){
+    
 }
 
 function stopAnimation(){
@@ -99,10 +109,59 @@ function display() {
 
 }
 
-function dfs (startNum , dataset){
+function runDFS(startNum){
+    const ROW = Math.ceil(Math.sqrt(dataset.length));
+    const COL = Math.ceil(dataset.length / ROW);
 
+    let dRow = [0, 1, 0, -1];
+    let dCol = [-1, 0, 1, 0];
+
+    function isValid(vis, row, col) {
+        if (row < 0 || col < 0 || row >= ROW || col >= COL) return false;
+        if (vis[row][col]) return false;
+        return true;
+    }
+
+    function DFS(row, col, vis) {
+        let st = [];
+        st.push([row, col]);
+
+        let dfsOrder = [];  
+
+        while (st.length !== 0) {
+            let curr = st.pop();
+            let row = curr[0];
+            let col = curr[1];
+
+            if (!isValid(vis, row, col)){ continue;}
+
+            vis[row][col] = true;
+            const index = row * COL + col;
+            const cell = dataset[index];
+
+            dfsOrder.push(cell.value);
+
+            for (let i = 0; i < 4; i++) {
+                let adjx = row + dRow[i];
+                let adjy = col + dCol[i];
+                st.push([adjx, adjy]);
+            }
+        }
+
+        return dfsOrder;  
+    }
+
+
+    let startIndex = dataset.findIndex(item => item.value === startNum);
+    let startRow = Math.floor(startIndex / COL);
+    let startCol = startIndex % COL;
+
+    let vis = Array.from(Array(ROW), () => Array(COL).fill(false));
+
+    let result = DFS(startRow, startCol, vis);
+    
+    return result;  
 }
-
 
 window.onload = function() {
     

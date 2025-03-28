@@ -1,7 +1,9 @@
-from flask import Flask, request, render_template, redirect, session, flash
+from flask import Flask, request, render_template, redirect, session, flash, jsonify
 from flask_mysqldb import MySQL , MySQLdb
 from werkzeug.security import generate_password_hash, check_password_hash
 from dotenv import load_dotenv
+import subprocess
+import json
 import os
 
 def configure():
@@ -25,7 +27,6 @@ mysql = MySQL(app)
 @app.route('/home.html')
 def home():
     return render_template('home.html')
-
 
 
 
